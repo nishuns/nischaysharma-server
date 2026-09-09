@@ -90,10 +90,13 @@ const outputSchema = {
             properties: {
                 linkedin: { type: 'string' },
                 github: { type: 'string' },
+                instagram: { type: 'string' },
+                threads: { type: 'string' },
+                youtube: { type: 'string' },
                 twitter: { type: 'string' },
                 website: { type: 'string' }
             },
-            required: ['linkedin', 'github', 'twitter', 'website']
+            required: ['linkedin', 'github', 'instagram', 'threads', 'youtube', 'twitter', 'website']
         }
     },
     required: ['basics', 'summary', 'skills', 'expertise', 'experience', 'education', 'projects', 'socialLinks']
@@ -155,6 +158,9 @@ export function normalizePreview(raw, selectedSections = RESUME_SECTIONS) {
         socialLinks: {
             linkedin: text(raw?.socialLinks?.linkedin, 500),
             github: text(raw?.socialLinks?.github, 500),
+            instagram: text(raw?.socialLinks?.instagram, 500),
+            threads: text(raw?.socialLinks?.threads, 500),
+            youtube: text(raw?.socialLinks?.youtube, 500),
             twitter: text(raw?.socialLinks?.twitter, 500),
             website: text(raw?.socialLinks?.website, 500)
         }
@@ -203,6 +209,9 @@ const applySchema = Joi.object({
         socialLinks: Joi.object({
             linkedin: Joi.string().uri().allow(''),
             github: Joi.string().uri().allow(''),
+            instagram: Joi.string().uri().allow(''),
+            threads: Joi.string().uri().allow(''),
+            youtube: Joi.string().uri().allow(''),
             twitter: Joi.string().uri().allow(''),
             website: Joi.string().uri().allow('')
         }).min(1)
