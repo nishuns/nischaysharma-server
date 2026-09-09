@@ -76,6 +76,9 @@ const userProfileSchema = {
             twitter: '',
             linkedin: '',
             github: '',
+            instagram: '',
+            threads: '',
+            youtube: '',
             website: ''
         }
     },

@@ -49,6 +49,9 @@ export const updateUserSchema = Joi.object({
         twitter: Joi.string().uri().optional().allow(''),
         linkedin: Joi.string().uri().optional().allow(''),
         github: Joi.string().uri().optional().allow(''),
+        instagram: Joi.string().uri().optional().allow(''),
+        threads: Joi.string().uri().optional().allow(''),
+        youtube: Joi.string().uri().optional().allow(''),
         website: Joi.string().uri().optional().allow('')
     }),
     integrations: Joi.object().unknown(true).optional(),

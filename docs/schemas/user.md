@@ -19,7 +19,7 @@ The User Profile represents a registered user in the system. It contains persona
 | `hobbies` | Array | No | List of hobbies. |
 | `interests` | Array | No | List of interests. |
 | `writingStyle` | String | No | Preferred AI writing style (`professional`, `casual`, `technical`, `witty`, `academic`, `storyteller`). |
-| `socialLinks` | Object | No | Social profile links: `{ twitter, linkedin, github, website }`. |
+| `socialLinks` | Object | No | Public profile links: `{ twitter, linkedin, github, instagram, threads, youtube, website }`. |
 | `role` | String | Yes | User role (`user`, `admin`, `moderator`). Default: `user`. |
 | `preferences` | Object | No | UI preferences: `{ theme, notifications, language }`. |
 | `integrations` | Object | No | OAuth integration data (tokens, identifiers). |

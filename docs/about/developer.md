@@ -13,10 +13,11 @@ My passion lies in bridging the gap between complex engineering and clear, acces
 
 Feel free to connect with me across these platforms:
 
-- **GitHub**: [nishuns](https://github.com/nishuns)
-- **LinkedIn**: [Nischay Sharma](https://www.linkedin.com/in/your-profile)
-- **Instagram**: [@your_handle](https://www.instagram.com/your_handle)
-- **YouTube**: [TaughtCode Channel](https://www.youtube.com/c/your_channel)
+- **GitHub**: [nischaysharma-me](https://github.com/nischaysharma-me)
+- **LinkedIn**: [Nischay Sharma](https://www.linkedin.com/in/nischaysharma-me)
+- **Instagram**: [@nischay.me](https://www.instagram.com/nischay.me/)
+- **Threads**: [@nischay.me](https://www.threads.net/@nischay.me)
+- **YouTube**: [Iamnischaysharma](https://www.youtube.com/@Iamnischaysharma)
 
 ---
 
