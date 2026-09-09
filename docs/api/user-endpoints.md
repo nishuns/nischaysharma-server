@@ -38,6 +38,37 @@ Update details of the current user.
 - **Body Parameters**: (JSON)
     - Any writable User schema field (e.g., `bio`, `displayName`, `preferences`).
 
+## Selective Resume Import
+
+Resume import is a two-step, review-first workflow. Uploaded files are parsed in memory and are not saved to Firebase Storage.
+
+### Preview Resume
+
+Extract selected categories without modifying the profile.
+
+- **URL**: `/me/resume/preview`
+- **Method**: `POST`
+- **Content-Type**: `multipart/form-data`
+- **Body Parameters**:
+    - `file` (File, Required): PDF, DOCX, or plain-text resume, up to 10 MB.
+    - `sections` (JSON String, Required): Any selection of `basics`, `summary`, `skills`, `experience`, `education`, `projects`, and `socialLinks`.
+- **Success Response**: `200 OK` with normalized extracted data for review. This endpoint never writes profile data.
+
+### Apply Resume Selection
+
+Persist only the fields and records explicitly selected in the review UI.
+
+- **URL**: `/me/resume/apply`
+- **Method**: `POST`
+- **Content-Type**: `application/json`
+- **Body Parameters**:
+    - `profile` (Object, Optional): Selected scalar fields, skills, expertise, and social links.
+    - `experience` (Array, Optional): Selected company/role records.
+    - `education` (Array, Optional): Selected education records.
+    - `projects` (Array, Optional): Selected project records.
+- **Behavior**: Skills are merged without duplicates. Existing experience, education, and projects with matching identities are skipped rather than duplicated.
+- **Success Response**: `200 OK` with profile-update, created-record, and skipped-duplicate counts.
+
 ## Media Management
 
 ### Update Profile Picture

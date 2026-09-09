@@ -2,6 +2,8 @@ import express from 'express';
 import * as userController from '../controllers/userProfileController.js';
 import { isAuthenticated } from '../middleware/auth.js';
 import upload from '../middleware/upload.js';
+import resumeUpload from '../middleware/resumeUpload.js';
+import adminAuth from '../middleware/adminAuth.js';
 import { validateRequest } from '../middleware/validateRequest.js';
 import { updateUserSchema } from '../validation/userSchemas.js';
 
@@ -49,6 +51,8 @@ router.use(isAuthenticated);
 
 // Generic asset upload
 router.post('/assets', upload.single('file'), userController.uploadAsset);
+router.post('/me/resume/preview', adminAuth, resumeUpload.single('file'), userController.previewResumeImport);
+router.post('/me/resume/apply', adminAuth, userController.applyResumeImport);
 
 /**
  * @swagger

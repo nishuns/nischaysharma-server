@@ -3,6 +3,7 @@ import * as storageService from '../services/storageService.js';
 import * as projectService from '../services/projectService.js';
 import * as experienceService from '../services/experienceService.js';
 import * as educationService from '../services/educationService.js';
+import * as resumeImportService from '../services/resumeImportService.js';
 import logger from '../utils/logger.js';
 
 /**
@@ -326,6 +327,27 @@ const uploadAsset = async (req, res) => {
     }
 };
 
+const previewResumeImport = async (req, res) => {
+    try {
+        const sections = typeof req.body.sections === 'string'
+            ? JSON.parse(req.body.sections)
+            : req.body.sections;
+        const preview = await resumeImportService.previewResume(req.file, sections);
+        res.json({ success: true, data: preview });
+    } catch (error) {
+        res.status(400).json({ success: false, error: error.message });
+    }
+};
+
+const applyResumeImport = async (req, res) => {
+    try {
+        const result = await resumeImportService.applyResumeImport(req.user.uid, req.body);
+        res.json({ success: true, data: result });
+    } catch (error) {
+        res.status(400).json({ success: false, error: error.message });
+    }
+};
+
 export {
     getMe,
     getPublicAdminProfile,
@@ -340,5 +362,7 @@ export {
     updateCoverPhoto,
     addGalleryAsset,
     deleteGalleryAsset,
-    uploadAsset
+    uploadAsset,
+    previewResumeImport,
+    applyResumeImport
 };

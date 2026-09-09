@@ -142,3 +142,16 @@ src/providers/
 │   └── <vendor-b>/        # Concrete implementation B
 │       └── index.js
 ```
+
+## Document Parsing Provider
+
+Resume imports use the same boundary:
+
+```text
+src/providers/document/
+├── base.js
+├── registry.js
+└── local/index.js
+```
+
+`documentParsingService` selects the provider with `DOCUMENT_PROVIDER` (default: `local`), normalizes extracted text, enforces the readable-text and character limits, and exposes no PDF/DOCX library details to resume business logic. The local provider currently supports PDF through `pdf-parse`, DOCX through `mammoth`, and UTF-8 plain text. A future OCR or hosted parsing provider only needs to implement `supports(mimeType)` and `extractText(file)`.
